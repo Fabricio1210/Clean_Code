@@ -1,0 +1,14 @@
+[tool.ruff]
+line-length = 79
+exclude = ["Pract1*", "dist", "*egg-info", "build"]
+
+[tool.ruff.lint]
+select = ["E", "W", "D", "PL", "BLE", "F", "I", "UP", "B", "RUF", "SIM", "ANN", "N"]
+preview = true
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.format]
+quote-style = "single"
+indent-style = "space"
