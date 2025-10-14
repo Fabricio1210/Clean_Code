@@ -8,7 +8,7 @@ class Game:
 
     def get_guess(self):
         try:
-            guessed_number = int(input("Guess a number between 1 and 20: "))
+            guessed_number = int(input("Adivina el número: "))
             self.current_guess = guessed_number
             return True
         except ValueError as e:
@@ -17,7 +17,7 @@ class Game:
 
     def get_attempts(self):
         try:
-            self.attempts = int(input("How many attempts would you like? "))
+            self.attempts = int(input("Cuantos intentos quieres? "))
             return True
         except ValueError as e:
             print(e)
@@ -35,17 +35,17 @@ class Game:
             print("Número de intentos:", self.attempts)
 
     def start(self):
-        attempts_failed = 0
+        attempts_failed = 1
         print("Adivina el número entre 1 y 20")
         while not self.get_attempts():
-            print("Try again")
+            print("Intentalo denuevo")
         while self.current_guess != self.number_to_guess:
             while not self.get_guess():
-                print("Try again")
-            self.attempts += 1
+                print("Intentalo denuevo")
+            attempts_failed += 1
             self.validate_guess()
             if self.attempts < attempts_failed:
-                print("You ran out of attempts")
+                print("Te quedaste sin intentos")
                 break
 
 
